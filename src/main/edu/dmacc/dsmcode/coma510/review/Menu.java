@@ -16,7 +16,7 @@ public class Menu {
 
     public Menu(String meal) throws FileNotFoundException {
         file = new File(
-                "C:\\COMA502\\code\\Fall2019-LecturePrep\\src\\main\\edu\\dmacc\\gmhazen\\week07\\classexercises\\restaurant\\"
+                "src\\main\\edu\\dmacc\\dsmcode\\coma510\\review\\"
                         + meal + "_menu.txt");
         menu = new HashMap<>();
 
