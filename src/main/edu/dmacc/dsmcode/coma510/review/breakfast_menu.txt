@@ -1,0 +1,2 @@
+pancakes,5.0
+milk,1.0
