@@ -11,7 +11,7 @@ public class Main {
         tesla.drive(100);
         geo.drive(100);
 
-        System.out.println("Tesla has " + tesla.milesLeft() + " miles left");
-        System.out.println("Geo has " + geo.milesLeft() + " miles left");
+        System.out.println(tesla.getName() + " has " + tesla.milesLeft() + " miles left");
+        System.out.println(geo.getName() + " has " + geo.milesLeft() + " miles left");
     }
 }
