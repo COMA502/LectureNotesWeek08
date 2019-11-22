@@ -8,4 +8,10 @@ public class GeoPrizm extends Vehicle {
     public void fillGas(int gallons) {
         milesLeft = milesLeft + (int) (gallons * 32);
     }
+
+    @Override
+    public void serviceVehicle() {
+        System.out.println("Replace oil");
+        System.out.println("Replace brakes");
+    }
 }

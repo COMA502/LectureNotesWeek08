@@ -8,4 +8,9 @@ public class TeslaModelS extends Vehicle {
     public void charge(int hours) {
         milesLeft = milesLeft + (int) (hours * 11.5);
     }
+
+    @Override
+    public void serviceVehicle() {
+        System.out.println("Replace brakes");
+    }
 }
