@@ -91,57 +91,13 @@ public class Restaurant {
         Menu menu = new Menu(meal);
 
         if (operation.equals("order")) {
-            menu.showMenu();
-            orderFood(menu, userInput);
+            Waitress waitress = new Waitress();
+            waitress.takeOrder(menu, userInput);
+            waitress.printTotal();
         } else if (operation.equals("add")) {
-            menu.showMenu();
-            addToMenu(menu, userInput);
-            menu.showMenu();
+            new Manager().addToMenu(menu, userInput);
         } else {
             System.out.println(operation + " is not a valid option. Please enter 'order' or 'add' instead.");
-        }
-    }
-
-    private static void orderFood(Menu menu, Scanner userInput) {
-        boolean done = false;
-        double total = 0;
-        while (!done) {
-            System.out.print("What food would you like; enter 'done' when complete? ");
-            String food = userInput.next();
-            if (food.equals("done")) {
-                done = true;
-            } else if (menu.hasFood(food)) {
-                total += menu.getPrice(food);
-            } else {
-                System.out.println("Sorry, we don't have " + food);
-            }
-        }
-        System.out.printf("Your total is $%.2f\n", total);
-    }
-
-    private static void addToMenu(Menu menu, Scanner userInput) throws FileNotFoundException {
-        boolean done = false;
-        while (!done) {
-            System.out.print("What food would you like to add; enter 'done' when complete? ");
-            String food = userInput.next();
-
-            if (food.equals("done")) {
-                done = true;
-            } else {
-                Double price = getPriceFromUser(userInput);
-                menu.addToMenu(food, price);
-            }
-        }
-    }
-
-    private static Double getPriceFromUser(Scanner userInput) {
-        try {
-            System.out.print("What's the price? ");
-            return userInput.nextDouble();
-        } catch (InputMismatchException e) {
-            System.out.println("The price must be a number.");
-            userInput.next();//clear the input
-            return getPriceFromUser(userInput);
         }
     }
 }
